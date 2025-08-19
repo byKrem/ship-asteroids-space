@@ -31,3 +31,6 @@ func _process(delta: float) -> void:
 
 func _on_vanish_timer_timeout() -> void:
 	self.queue_free()
+
+func _on_friendly_fire_timer_timeout() -> void:
+	$HitboxComponent.collision_mask = 3

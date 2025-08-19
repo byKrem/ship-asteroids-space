@@ -16,6 +16,8 @@ func rnd_spawn() -> void:
 			randf_range(spawn_area.position.x,spawn_area.end.x),
 			randf_range(spawn_area.position.y,spawn_area.end.y))
 		
+		# TODO: Works only for Asteroids. Need to be fixed for UFO's
+		# Maybe create class mob with declared move_direction variable
 		mob.rotation = randf_range(0, 2 * PI)
 		
 		mob.velocity = Vector2(cos(mob.rotation),sin(mob.rotation)) * 50

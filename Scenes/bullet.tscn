@@ -19,8 +19,8 @@ visible = false
 texture = ExtResource("1_xjght")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ycag2")]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_6afsh")
@@ -36,4 +36,11 @@ points = PackedVector2Array(-6, 0, 0, -4, 4, 0, 0, 4)
 closed = true
 width_curve = SubResource("Curve_ycag2")
 
+[node name="FriendlyFireTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="VanishTimer" to="." method="_on_vanish_timer_timeout"]
+[connection signal="timeout" from="FriendlyFireTimer" to="." method="_on_friendly_fire_timer_timeout"]
