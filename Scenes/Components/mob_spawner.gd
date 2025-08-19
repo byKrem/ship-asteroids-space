@@ -16,6 +16,10 @@ func rnd_spawn() -> void:
 			randf_range(spawn_area.position.x,spawn_area.end.x),
 			randf_range(spawn_area.position.y,spawn_area.end.y))
 		
+		mob.rotation = randf_range(0, 2 * PI)
+		
+		mob.velocity = Vector2(cos(mob.rotation),sin(mob.rotation)) * 50
+		
 		add_child.call_deferred(mob)
 	
 	coins = coins * 1.5
