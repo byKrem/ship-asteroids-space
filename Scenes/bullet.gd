@@ -9,8 +9,6 @@ func _ready() -> void:
 	var camera = get_viewport().get_camera_2d()
 	var camera_rect = camera.get_viewport_rect()
 	viewport_rect = Rect2(camera.global_position - camera_rect.size/2, camera_rect.size)
-	print(camera_rect)
-	print(viewport_rect)
 	
 	half_sprite_width = $Sprite2D.texture.get_width() * $Sprite2D.scale.x / 2
 	half_sprite_height = $Sprite2D.texture.get_height() * $Sprite2D.scale.y / 2

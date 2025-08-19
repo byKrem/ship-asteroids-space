@@ -35,7 +35,7 @@ autostart = true
 
 [node name="VanishTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
