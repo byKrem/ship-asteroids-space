@@ -31,7 +31,3 @@ func _process(delta: float) -> void:
 
 func _on_vanish_timer_timeout() -> void:
 	self.queue_free()
-
-func _on_collide_timer_timeout() -> void:
-	$HitboxComponent.monitorable = true
-	$HitboxComponent.monitoring = true

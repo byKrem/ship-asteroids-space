@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 10.0
 const ANGLE = 0.05
 

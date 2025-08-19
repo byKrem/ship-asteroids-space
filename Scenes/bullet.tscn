@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/Components/hitbox_component.tscn" id="3_ycag2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6afsh"]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="Curve" id="Curve_ycag2"]
 _data = [Vector2(0.0106383, 0.797753), 0.0, 0.0, 0, 0, Vector2(0.25, 0.47191), 0.0, 0.0, 0, 0, Vector2(0.755319, 0.483146), 0.0, 0.0, 0, 0, Vector2(1, 0.797753), 0.0, 0.0, 0, 0]
@@ -21,17 +21,9 @@ texture = ExtResource("1_xjght")
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ycag2")]
 collision_layer = 3
 collision_mask = 3
-monitoring = false
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_6afsh")
-
-[node name="CollideTimer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.2
-one_shot = true
-autostart = true
 
 [node name="VanishTimer" type="Timer" parent="."]
 process_callback = 0
@@ -44,5 +36,4 @@ points = PackedVector2Array(-6, 0, 0, -4, 4, 0, 0, 4)
 closed = true
 width_curve = SubResource("Curve_ycag2")
 
-[connection signal="timeout" from="CollideTimer" to="." method="_on_collide_timer_timeout"]
 [connection signal="timeout" from="VanishTimer" to="." method="_on_vanish_timer_timeout"]
