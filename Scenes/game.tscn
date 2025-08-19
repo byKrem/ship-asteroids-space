@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl2wng2gg8706"]
+
+[ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://ohuxoh5m5vrn" path="res://Scenes/Components/mob_spawner.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://djvdgwrjgpcsx" path="res://Scenes/asteroid.tscn" id="4_3dryh"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-640.111, -358.5)
+scale = Vector2(1.33241, 1.33241)
+texture = ExtResource("1_qxrlw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_ebmjs")]
+position = Vector2(-98, 31)
+scale = Vector2(0.75, 0.75)
+
+[node name="MobSpawner" parent="." instance=ExtResource("3_3dryh")]
+mobs = Array[PackedScene]([ExtResource("4_3dryh")])
+
+[node name="Asteroid" parent="MobSpawner" instance=ExtResource("4_3dryh")]
+position = Vector2(301, -181)
+
+[node name="Asteroid2" parent="MobSpawner" instance=ExtResource("4_3dryh")]
+position = Vector2(-367, -276)

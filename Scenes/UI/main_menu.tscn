@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://bleuuqsju4qkq"]
+
+[ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_5wsvm"]
+[ext_resource type="PackedScene" uid="uid://cnpk0aqow4e26" path="res://Scenes/UI/transfer_button.tscn" id="2_i2xx2"]
+[ext_resource type="PackedScene" uid="uid://dl2wng2gg8706" path="res://Scenes/game.tscn" id="3_o14dv"]
+[ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="4_mrfpk"]
+[ext_resource type="PackedScene" uid="uid://uklwr4hrsqin" path="res://Scenes/UI/volume_slider.tscn" id="4_u7lva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrfpk"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2557.0
+offset_bottom = 1439.0
+texture = ExtResource("1_5wsvm")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -26.5
+offset_right = 473.0
+offset_bottom = 26.5
+grow_vertical = 2
+
+[node name="StartButton" parent="Menu" node_paths=PackedStringArray("movable_obj") instance=ExtResource("2_i2xx2")]
+layout_mode = 2
+text = "Start"
+movable_obj = NodePath("../..")
+pos = Vector2(1, 1)
+new_scene = ExtResource("3_o14dv")
+
+[node name="OptionsButton" parent="Menu" node_paths=PackedStringArray("movable_obj") instance=ExtResource("2_i2xx2")]
+layout_mode = 2
+text = "Options"
+movable_obj = NodePath("../..")
+pos = Vector2(0, 1)
+
+[node name="CreditsButton" parent="Menu" node_paths=PackedStringArray("movable_obj") instance=ExtResource("2_i2xx2")]
+layout_mode = 2
+text = "Credits"
+movable_obj = NodePath("../..")
+pos = Vector2(1, 0)
+
+[node name="Credits" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.998
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -0.440186
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Credits"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mrfpk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Header" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_mrfpk")
+theme_override_font_sizes/normal_font_size = 32
+text = "Made for \"20 Games Challenge - Summer Jam!\" in August 2025"
+fit_content = true
+autowrap_mode = 0
+
+[node name="VSeparator" type="VSeparator" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mrfpk")
+
+[node name="Body" type="RichTextLabel" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_mrfpk")
+theme_override_font_sizes/normal_font_size = 24
+text = "Picked theme: Challenge #4 \"Asteroids\"
+
+Music: ?
+Sound Effects: byKrem
+Programming: byKrem
+Art: axellwing"
+fit_content = true
+autowrap_mode = 0
+
+[node name="BackButton" parent="Credits" node_paths=PackedStringArray("movable_obj") instance=ExtResource("2_i2xx2")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Back"
+movable_obj = NodePath("../..")
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 1.0
+anchor_right = 1.003
+anchor_bottom = 1.997
+offset_left = 190.44
+offset_right = -190.84
+offset_bottom = 0.160034
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MasterVolume" parent="Options" instance=ExtResource("4_u7lva")]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="BGMVolume" parent="Options" instance=ExtResource("4_u7lva")]
+layout_mode = 2
+size_flags_vertical = 0
+bus_name = "BGM"
+
+[node name="SFXVolume" parent="Options" instance=ExtResource("4_u7lva")]
+layout_mode = 2
+size_flags_vertical = 0
+bus_name = "SFX"
+
+[node name="BackButton" parent="Options" node_paths=PackedStringArray("movable_obj") instance=ExtResource("2_i2xx2")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+movable_obj = NodePath("../..")
