@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmr3dmke2s8qb"]
+
+[ext_resource type="Script" uid="uid://8fvnc0ust66g" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid.gd" id="1_1ro33"]
+[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/Components/health_component.tscn" id="2_8ric3"]
+[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/Components/hurtbox_component.tscn" id="3_yt462"]
+[ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/Components/hitbox_component.tscn" id="4_vok7p"]
+[ext_resource type="Texture2D" uid="uid://d30ees2ghoiwl" path="res://Assets/asteroids.png" id="5_n51ii"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ro33"]
+height = 55.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6150"]
+height = 60.0
+
+[node name="AsteroidMedium" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_1ro33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+rotation = 0.731884
+shape = SubResource("CapsuleShape2D_1ro33")
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("hurtbox") instance=ExtResource("2_8ric3")]
+hurtbox = NodePath("../HurtboxComponent")
+health = 2
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_yt462")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(-2, -2)
+rotation = 0.731884
+shape = SubResource("CapsuleShape2D_x6150")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_vok7p")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-2, -2)
+rotation = 0.731884
+shape = SubResource("CapsuleShape2D_x6150")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-10, 0, 0, -11, 10, 0, 0, 9)
+closed = true
+width = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_n51ii")
+hframes = 2
+frame = 1
+
+[connection signal="on_health_run_out" from="HealthComponent" to="." method="_on_health_component_on_health_run_out"]

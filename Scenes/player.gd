@@ -61,3 +61,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_shoot_cooldown_timeout() -> void:
 	fire_in_cooldown = false
+
+
+func _on_health_component_on_health_run_out() -> void:
+	self.call_deferred("queue_free")

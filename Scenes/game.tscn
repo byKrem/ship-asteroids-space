@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://ohuxoh5m5vrn" path="res://Scenes/Components/mob_spawner.tscn" id="3_3dryh"]
-[ext_resource type="PackedScene" uid="uid://djvdgwrjgpcsx" path="res://Scenes/asteroid.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://djvdgwrjgpcsx" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_large.tscn" id="4_3dryh"]
 
 [node name="Game" type="Node2D"]
 

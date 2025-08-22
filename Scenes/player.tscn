@@ -43,3 +43,4 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cvnsp")
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
+[connection signal="on_health_run_out" from="HealthComponent" to="." method="_on_health_component_on_health_run_out"]

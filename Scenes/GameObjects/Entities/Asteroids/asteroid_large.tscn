@@ -1,22 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://djvdgwrjgpcsx"]
+[gd_scene load_steps=10 format=3 uid="uid://djvdgwrjgpcsx"]
 
-[ext_resource type="Script" uid="uid://8fvnc0ust66g" path="res://Scenes/asteroid.gd" id="1_rfhhd"]
+[ext_resource type="Script" uid="uid://8fvnc0ust66g" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid.gd" id="1_rfhhd"]
 [ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/Components/health_component.tscn" id="1_rvlwq"]
 [ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/Components/hurtbox_component.tscn" id="2_bi0dy"]
+[ext_resource type="PackedScene" uid="uid://cmr3dmke2s8qb" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_medium.tscn" id="2_titt6"]
 [ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/Components/hitbox_component.tscn" id="3_rfhhd"]
 [ext_resource type="Texture2D" uid="uid://d30ees2ghoiwl" path="res://Assets/asteroids.png" id="4_bi0dy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f2ils"]
-radius = 19.0
+radius = 45.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xliy4"]
-radius = 20.0
+radius = 48.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fuwye"]
-radius = 20.025
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfhhd"]
+radius = 48.0
 
-[node name="Asteroid" type="CharacterBody2D"]
+[node name="AsteroidLarge" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_rfhhd")
+smaller_asteroid = ExtResource("2_titt6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -38,7 +42,7 @@ shape = SubResource("CircleShape2D_xliy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_fuwye")
+shape = SubResource("CircleShape2D_rfhhd")
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
@@ -47,6 +51,7 @@ closed = true
 width = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.44, 0.44)
 texture = ExtResource("4_bi0dy")
 hframes = 2
+
+[connection signal="on_health_run_out" from="HealthComponent" to="." method="_on_health_component_on_health_run_out"]
