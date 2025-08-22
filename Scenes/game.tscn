@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl2wng2gg8706"]
+[gd_scene load_steps=6 format=3 uid="uid://dl2wng2gg8706"]
 
-[ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/GameObjects/Entities/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://ohuxoh5m5vrn" path="res://Scenes/Components/mob_spawner.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://ohuxoh5m5vrn" path="res://Scenes/mob_spawner.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://djvdgwrjgpcsx" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_large.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://cmr3dmke2s8qb" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_medium.tscn" id="5_wowpa"]
 
 [node name="Game" type="Node2D"]
 
@@ -19,7 +20,9 @@ position = Vector2(-98, 31)
 scale = Vector2(0.75, 0.75)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_3dryh")]
-mobs = Array[PackedScene]([ExtResource("4_3dryh")])
+mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa")])
+base_coins = 6
+maximum_objects = 15
 
 [node name="Asteroid" parent="MobSpawner" instance=ExtResource("4_3dryh")]
 position = Vector2(301, -181)

@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 10.0
 const ANGLE = 0.05
 
-const BULLET : PackedScene = preload("res://Scenes/bullet.tscn")
+@export var BULLET : PackedScene
 
 var viewport_rect: Rect2
 var half_sprite_width: float

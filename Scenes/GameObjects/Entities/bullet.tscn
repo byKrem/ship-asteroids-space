@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://drgys2ci4prqg"]
 
-[ext_resource type="Script" uid="uid://koklaa2x620a" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Script" uid="uid://koklaa2x620a" path="res://Scenes/GameObjects/Entities/bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://bnqrk88kr5dsn" path="res://Assets/white.png" id="1_xjght"]
 [ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/Components/hitbox_component.tscn" id="3_ycag2"]
 

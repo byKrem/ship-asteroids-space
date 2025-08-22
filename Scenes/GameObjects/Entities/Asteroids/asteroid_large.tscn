@@ -28,7 +28,6 @@ shape = SubResource("CircleShape2D_f2ils")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("hurtbox") instance=ExtResource("1_rvlwq")]
 hurtbox = NodePath("../HurtboxComponent")
-health = 2
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("2_bi0dy")]
 collision_layer = 2

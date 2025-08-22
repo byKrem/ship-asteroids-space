@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://lcrvvpws5lcs"]
+[gd_scene load_steps=7 format=3 uid="uid://lcrvvpws5lcs"]
 
-[ext_resource type="Script" uid="uid://c8nltbw4tc76j" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://c8nltbw4tc76j" path="res://Scenes/GameObjects/Entities/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://drgys2ci4prqg" path="res://Scenes/GameObjects/Entities/bullet.tscn" id="2_c6t2i"]
 [ext_resource type="Texture2D" uid="uid://cbpjnuvw1da8s" path="res://Assets/ship_sheet.png" id="2_vgqql"]
 [ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/Components/health_component.tscn" id="3_vgqql"]
 [ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/Components/hurtbox_component.tscn" id="4_fkybt"]
@@ -11,6 +12,7 @@ height = 106.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
+BULLET = ExtResource("2_c6t2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
