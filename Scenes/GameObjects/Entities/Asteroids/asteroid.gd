@@ -14,8 +14,8 @@ func _ready() -> void:
 	viewport_rect = Rect2(camere.global_position - camera_rect.size/2, camera_rect.size)
 	rotation = randf_range(0,TAU)
 	
-	half_sprite_width = $Sprite2D.texture.get_width() * $Sprite2D.scale.x / 2
-	half_sprite_height = $Sprite2D.texture.get_height() * $Sprite2D.scale.y / 2
+	half_sprite_width = $Sprite2D.texture.get_width() * $Sprite2D.scale.x / 6
+	half_sprite_height = $Sprite2D.texture.get_height() * $Sprite2D.scale.y / 6
 
 func wrap_pos() -> void:
 	if global_position.x < viewport_rect.position.x - half_sprite_width:

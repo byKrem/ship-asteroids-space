@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://m3j8hnfgfcdw"]
+
+[ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="1_rrvs5"]
+[ext_resource type="Script" uid="uid://7vvkqmh6n7nk" path="res://Scenes/UI/pause_menu.gd" id="2_8rf44"]
+[ext_resource type="Script" uid="uid://qp1tqtjgb2y" path="res://Scenes/UI/pause_controller.gd" id="3_r2i2h"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rrvs5")
+script = ExtResource("2_8rf44")
+
+[node name="Back" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options
+"
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Menu"
+
+[node name="PauseController" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("3_r2i2h")
+
+[connection signal="button_up" from="VBoxContainer/Resume" to="." method="_on_resume_button_up"]
+[connection signal="button_up" from="VBoxContainer/Options" to="." method="_on_options_button_up"]
+[connection signal="button_up" from="VBoxContainer/Menu" to="." method="_on_menu_button_up"]

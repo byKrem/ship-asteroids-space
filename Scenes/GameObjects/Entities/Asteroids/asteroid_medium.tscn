@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmr3dmke2s8qb"]
 
 [ext_resource type="Script" uid="uid://8fvnc0ust66g" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid.gd" id="1_1ro33"]
-[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/Components/health_component.tscn" id="2_8ric3"]
-[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/Components/hurtbox_component.tscn" id="3_yt462"]
-[ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/Components/hitbox_component.tscn" id="4_vok7p"]
+[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/GameObjects/Components/health_component.tscn" id="2_8ric3"]
+[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/GameObjects/Components/hurtbox_component.tscn" id="3_yt462"]
+[ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/GameObjects/Components/hitbox_component.tscn" id="4_vok7p"]
 [ext_resource type="Texture2D" uid="uid://d30ees2ghoiwl" path="res://Assets/asteroids.png" id="5_n51ii"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ro33"]

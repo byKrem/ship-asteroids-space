@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c8nltbw4tc76j" path="res://Scenes/GameObjects/Entities/player.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://drgys2ci4prqg" path="res://Scenes/GameObjects/Entities/bullet.tscn" id="2_c6t2i"]
 [ext_resource type="Texture2D" uid="uid://cbpjnuvw1da8s" path="res://Assets/ship_sheet.png" id="2_vgqql"]
-[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/Components/health_component.tscn" id="3_vgqql"]
-[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/Components/hurtbox_component.tscn" id="4_fkybt"]
+[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/GameObjects/Components/health_component.tscn" id="3_vgqql"]
+[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/GameObjects/Components/hurtbox_component.tscn" id="4_fkybt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 13.0
