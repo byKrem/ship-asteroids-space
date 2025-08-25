@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const SPEED = 10.0
-const ANGLE = 0.05
 
 @export var BULLET : PackedScene
 
@@ -9,6 +8,7 @@ var viewport_rect: Rect2
 var half_sprite_width: float
 var half_sprite_height: float
 var fire_in_cooldown: bool = false
+@onready var angle: float = ProjectSettings.get_setting("gameplay/angle_sensitivity")
 
 func wrap_pos() -> void:
 	if global_position.x < viewport_rect.position.x - half_sprite_width:
@@ -35,6 +35,12 @@ func _ready() -> void:
 	
 	half_sprite_width = $Sprite2D.texture.get_width() * $Sprite2D.scale.x / 6
 	half_sprite_height = $Sprite2D.texture.get_height() * $Sprite2D.scale.y / 6
+	
+	ProjectSettings.settings_changed.connect(_on_settings_changed)
+	
+
+func _on_settings_changed() -> void:
+	angle = ProjectSettings.get_setting("gameplay/angle_sensitivity")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and !fire_in_cooldown:
@@ -54,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 		$Sprite2D.frame = 0
 	
 	if direction:
-		rotation += ANGLE * direction
+		rotation += angle * direction
 	
 	wrap_pos()
 	move_and_slide()

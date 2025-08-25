@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bleuuqsju4qkq"]
+[gd_scene load_steps=8 format=3 uid="uid://bleuuqsju4qkq"]
 
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_5wsvm"]
 [ext_resource type="PackedScene" uid="uid://cnpk0aqow4e26" path="res://Scenes/UI/transfer_button.tscn" id="2_i2xx2"]
 [ext_resource type="PackedScene" uid="uid://dl2wng2gg8706" path="res://Scenes/game.tscn" id="3_o14dv"]
 [ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="4_mrfpk"]
 [ext_resource type="PackedScene" uid="uid://uklwr4hrsqin" path="res://Scenes/UI/volume_slider.tscn" id="4_u7lva"]
+[ext_resource type="PackedScene" uid="uid://b7jyakhjvwi1l" path="res://Scenes/UI/setting_slider.tscn" id="5_4pqbp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrfpk"]
 
@@ -130,6 +131,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="SettingSlider" parent="Options" instance=ExtResource("5_4pqbp")]
+layout_mode = 2
+size_flags_vertical = 1
+setting_name = "angle_sensitivity"
+
+[node name="ValueSlider" parent="Options/SettingSlider" index="1"]
+min_value = 0.005
+max_value = 0.1
+step = 0.005
+
 [node name="MasterVolume" parent="Options" instance=ExtResource("4_u7lva")]
 layout_mode = 2
 size_flags_vertical = 1
@@ -150,3 +161,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 movable_obj = NodePath("../..")
+
+[editable path="Options/SettingSlider"]
