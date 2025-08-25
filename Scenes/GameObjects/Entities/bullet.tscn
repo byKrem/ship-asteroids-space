@@ -19,8 +19,6 @@ visible = false
 texture = ExtResource("1_xjght")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_ycag2")]
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_6afsh")

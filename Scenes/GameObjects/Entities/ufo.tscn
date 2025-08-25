@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7vckyvqqku7n"]
+
+[ext_resource type="Texture2D" uid="uid://cu6kxkmasp78e" path="res://Assets/UFO.png" id="1_2b38i"]
+[ext_resource type="Script" uid="uid://ce53etyfk310e" path="res://Scenes/GameObjects/Entities/ufo.gd" id="1_2461k"]
+[ext_resource type="PackedScene" uid="uid://bu2fsgmcsmxv" path="res://Scenes/GameObjects/Components/hitbox_component.tscn" id="2_2461k"]
+[ext_resource type="PackedScene" uid="uid://c1sdsbfvnv0xh" path="res://Scenes/GameObjects/Components/hurtbox_component.tscn" id="3_u267m"]
+[ext_resource type="PackedScene" uid="uid://dojnc2qn1a1a0" path="res://Scenes/GameObjects/Components/health_component.tscn" id="4_us6i3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b38i"]
+height = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2461k"]
+radius = 15.0
+
+[node name="UFO" type="CharacterBody2D"]
+script = ExtResource("1_2461k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2b38i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2b38i")
+region_enabled = true
+region_rect = Rect2(0, 30, 128, 70)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_2461k")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2b38i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-2, -13)
+shape = SubResource("CircleShape2D_2461k")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("3_u267m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2b38i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(-2, -13)
+shape = SubResource("CircleShape2D_2461k")
+
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("hurtbox") instance=ExtResource("4_us6i3")]
+hurtbox = NodePath("../HurtboxComponent")
+
+[node name="ShootTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="on_health_run_out" from="HealthComponent" to="." method="_on_health_component_on_health_run_out"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dl2wng2gg8706"]
+[gd_scene load_steps=8 format=3 uid="uid://dl2wng2gg8706"]
 
 [ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/GameObjects/Entities/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djvdgwrjgpcsx" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_large.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cmr3dmke2s8qb" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_medium.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://m3j8hnfgfcdw" path="res://Scenes/UI/pause_menu.tscn" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://c7vckyvqqku7n" path="res://Scenes/GameObjects/Entities/ufo.tscn" id="7_v158k"]
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -17,7 +18,7 @@ position = Vector2(-98, 31)
 scale = Vector2(0.75, 0.75)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_3dryh")]
-mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa")])
+mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa"), ExtResource("7_v158k")])
 base_coins = 6
 maximum_objects = 15
 
