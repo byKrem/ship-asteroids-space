@@ -4,7 +4,7 @@ const SPEED = 10.0
 
 signal ship_wrapped()
 @export var BULLET : PackedScene
-@onready var life_counter: HBoxContainer = $"../CanvasLayer/LifeCounter"
+@onready var life_counter: HBoxContainer = $"../LifeCounter"
 
 var viewport_rect: Rect2
 var half_sprite_width: float
@@ -34,6 +34,7 @@ func fire() -> void:
 	bullet.global_position = $Marker2D.global_position
 	bullet.velocity = SPEED * 50 + (velocity.length() / 1.6)
 	owner.add_child(bullet)
+	SfxAudioStreamPlayer.play_polyphonic("res://Assets/shoot.mp3")
 
 func _ready() -> void:
 	var camere = get_viewport().get_camera_2d()
@@ -77,10 +78,14 @@ func _on_shoot_cooldown_timeout() -> void:
 
 func _on_health_component_on_health_run_out() -> void:
 	extra_life_count -= 1
-	var life_to_remove = life_counter.get_child(0)
-	life_counter.remove_child(life_to_remove)
+	
+	if life_counter.get_child_count() > 0:
+		var life_to_remove = life_counter.get_child(0)
+		life_counter.remove_child(life_to_remove)
 	
 	if extra_life_count <= 0:
+		$"../GameOver".visible = true
+		$"../GameOver".visibility_changed.emit()
 		self.call_deferred("queue_free")
 	else:
 		$HealthComponent.health = 1

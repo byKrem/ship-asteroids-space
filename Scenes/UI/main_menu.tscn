@@ -146,11 +146,6 @@ value = 0.055
 layout_mode = 2
 size_flags_vertical = 1
 
-[node name="BGMVolume" parent="Options" instance=ExtResource("4_u7lva")]
-layout_mode = 2
-size_flags_vertical = 0
-bus_name = "BGM"
-
 [node name="SFXVolume" parent="Options" instance=ExtResource("4_u7lva")]
 layout_mode = 2
 size_flags_vertical = 0

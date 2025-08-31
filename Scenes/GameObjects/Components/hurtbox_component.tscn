@@ -4,3 +4,5 @@
 
 [node name="HurtboxComponent" type="Area2D"]
 script = ExtResource("1_leg2g")
+
+[connection signal="on_damage_taken" from="." to="." method="_on_on_damage_taken"]

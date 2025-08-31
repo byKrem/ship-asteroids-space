@@ -43,6 +43,7 @@ func _on_shoot_timer_timeout() -> void:
 	bullet.global_position = self.global_position + Vector2.from_angle(bullet.rotation) * 100
 	bullet.velocity = SPEED * 50 + (velocity.length() / 1.6)
 	$"../..".add_child(bullet)
+	SfxAudioStreamPlayer.play_polyphonic("res://Assets/shoot.mp3")
 
 
 func _on_health_component_on_health_run_out() -> void:

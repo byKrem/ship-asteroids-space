@@ -15,6 +15,10 @@ run/main_scene="uid://bleuuqsju4qkq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SfxAudioStreamPlayer="*res://Scenes/sfx_audio_stream_player.tscn"
+
 [display]
 
 window/size/viewport_width=1280
