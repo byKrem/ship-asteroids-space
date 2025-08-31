@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl2wng2gg8706"]
+[gd_scene load_steps=10 format=3 uid="uid://dl2wng2gg8706"]
 
 [ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/GameObjects/Entities/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cmr3dmke2s8qb" path="res://Scenes/GameObjects/Entities/Asteroids/asteroid_medium.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://m3j8hnfgfcdw" path="res://Scenes/UI/pause_menu.tscn" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c7vckyvqqku7n" path="res://Scenes/GameObjects/Entities/ufo.tscn" id="7_v158k"]
+[ext_resource type="Script" uid="uid://b3k0uymjonbmi" path="res://Scenes/tutorial.gd" id="8_v158k"]
+[ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="9_h4fw4"]
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -19,11 +21,11 @@ scale = Vector2(0.75, 0.75)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_3dryh")]
 mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa"), ExtResource("7_v158k")])
-base_coins = 6
-maximum_objects = 15
+weights = Array[int]([60, 30, 10])
+maximum_objects = 10
 
 [node name="AsteroidMedium" parent="MobSpawner" instance=ExtResource("5_wowpa")]
-position = Vector2(360, -5)
+position = Vector2(391, -188)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -128
@@ -34,6 +36,10 @@ anchor_left = -1.0
 anchor_top = -1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 124.0
+offset_top = 26.0
+offset_right = 124.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -43,3 +49,27 @@ stretch_mode = 6
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_1l0tm")]
 visible = false
+
+[node name="Tutorial" type="Node" parent="."]
+script = ExtResource("8_v158k")
+
+[node name="Label" type="Label" parent="Tutorial"]
+offset_left = -524.0
+offset_top = 190.0
+offset_right = -62.0
+offset_bottom = 283.0
+theme = ExtResource("9_h4fw4")
+text = "Hey! This is a small tutorial!
+To move you should press [W]"
+
+[node name="SkipTutor" type="Label" parent="Tutorial"]
+offset_left = 75.0
+offset_top = -321.0
+offset_right = 615.0
+offset_bottom = -228.0
+theme = ExtResource("9_h4fw4")
+text = "Just shoot this asteroid
+if you know how to play"
+horizontal_alignment = 1
+
+[connection signal="tree_exited" from="MobSpawner/AsteroidMedium" to="Tutorial" method="_on_asteroid_medium_tree_exited"]

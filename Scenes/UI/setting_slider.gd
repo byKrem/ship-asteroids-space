@@ -5,12 +5,10 @@ extends HBoxContainer
 
 var setting_total : String
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setting_total = "{setting_category}/{setting_name}".format(
 		{"setting_category": setting_category, "setting_name": setting_name})
 	
-	$Name.text = setting_name
 	if !ProjectSettings.has_setting(setting_total):
 		ProjectSettings.set_setting(setting_total, 0.05)
 		$ValueSlider.value = 0.05
