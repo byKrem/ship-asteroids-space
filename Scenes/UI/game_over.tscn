@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7hm2p3y21rej"]
+
+[ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="1_jxkuk"]
+[ext_resource type="Script" uid="uid://cmerqq3y71l28" path="res://Scenes/UI/game_over.gd" id="2_wpaxx"]
+
+[node name="GameOver" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jxkuk")
+script = ExtResource("2_wpaxx")
+
+[node name="Back" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayedTime" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time played: "
+
+[node name="Time" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="PlayTime" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_up" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="timeout" from="PlayTime" to="." method="_on_play_time_timeout"]
