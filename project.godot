@@ -19,11 +19,6 @@ config/icon="res://icon.svg"
 
 SfxAudioStreamPlayer="*res://Scenes/sfx_audio_stream_player.tscn"
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-
 [input]
 
 accelerate={

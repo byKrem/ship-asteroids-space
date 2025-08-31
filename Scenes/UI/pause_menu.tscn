@@ -45,6 +45,7 @@ size_flags_vertical = 3
 text = "Resume"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options
