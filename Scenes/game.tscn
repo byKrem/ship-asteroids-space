@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl2wng2gg8706"]
+[gd_scene load_steps=11 format=3 uid="uid://dl2wng2gg8706"]
 
 [ext_resource type="PackedScene" uid="uid://lcrvvpws5lcs" path="res://Scenes/GameObjects/Entities/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ckq2kprnyt4yj" path="res://Assets/background.png" id="1_qxrlw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7vckyvqqku7n" path="res://Scenes/GameObjects/Entities/ufo.tscn" id="7_v158k"]
 [ext_resource type="Script" uid="uid://b3k0uymjonbmi" path="res://Scenes/tutorial.gd" id="8_v158k"]
 [ext_resource type="Theme" uid="uid://daqmjtob3oqc7" path="res://Scenes/UI/TextTheme.tres" id="9_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://dvwwirxglm6th" path="res://Assets/ship.png" id="10_ldgsr"]
 
 [node name="Game" type="Node2D"]
 process_mode = 1
@@ -21,7 +22,6 @@ scale = Vector2(0.75, 0.75)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_3dryh")]
 mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa"), ExtResource("7_v158k")])
-weights = Array[int]([60, 30, 10])
 maximum_objects = 10
 
 [node name="AsteroidMedium" parent="MobSpawner" instance=ExtResource("5_wowpa")]
@@ -46,6 +46,33 @@ mouse_filter = 2
 texture = ExtResource("1_qxrlw")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="LifeCounter" type="HBoxContainer" parent="CanvasLayer"]
+z_index = 2
+offset_left = 42.0
+offset_top = 38.0
+offset_right = 185.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LifeCounter"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ldgsr")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/LifeCounter"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ldgsr")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/LifeCounter"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_ldgsr")
+expand_mode = 3
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_1l0tm")]
 visible = false
