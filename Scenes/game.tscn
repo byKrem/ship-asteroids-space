@@ -26,7 +26,7 @@ mobs = Array[PackedScene]([ExtResource("4_3dryh"), ExtResource("5_wowpa"), ExtRe
 maximum_objects = 10
 
 [node name="AsteroidMedium" parent="MobSpawner" instance=ExtResource("5_wowpa")]
-position = Vector2(391, -188)
+position = Vector2(387, -167)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -128
@@ -53,10 +53,10 @@ visible = false
 
 [node name="LifeCounter" type="HBoxContainer" parent="."]
 z_index = 2
-offset_left = -580.0
-offset_top = -315.0
-offset_right = -437.0
-offset_bottom = -257.0
+offset_left = -548.0
+offset_top = -308.0
+offset_right = -405.0
+offset_bottom = -250.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
@@ -82,19 +82,19 @@ expand_mode = 3
 script = ExtResource("8_v158k")
 
 [node name="Label" type="Label" parent="Tutorial"]
-offset_left = -524.0
-offset_top = 190.0
-offset_right = -62.0
-offset_bottom = 283.0
+offset_left = -554.0
+offset_top = 146.0
+offset_right = -92.0
+offset_bottom = 239.0
 theme = ExtResource("9_h4fw4")
 text = "Hey! This is a small tutorial!
 To move you should press [W]"
 
 [node name="SkipTutor" type="Label" parent="Tutorial"]
-offset_left = 75.0
-offset_top = -321.0
-offset_right = 615.0
-offset_bottom = -228.0
+offset_left = 71.0
+offset_top = -300.0
+offset_right = 611.0
+offset_bottom = -207.0
 theme = ExtResource("9_h4fw4")
 text = "Just shoot this asteroid
 if you know how to play"

@@ -28,6 +28,10 @@ func rnd_spawn() -> void:
 	var difficulty = 1
 	if waveCount>5:
 		difficulty = difficulty - 1
+	var playerPos : Vector2 = lastPlayerPos
+	
+	if player != null:
+		playerPos = player.global_position
 	
 	for n in range(spawn_count):
 		var index = randi_range(0, mobs.size() - 1 - difficulty)
@@ -36,7 +40,7 @@ func rnd_spawn() -> void:
 		var angle = randf_range(0, TAU)
 		var distance = randi_range(200,1000) # MinDistance and MaxDistance
 		
-		mob.global_position = lastPlayerPos + Vector2(cos(angle), sin(angle)) * distance
+		mob.global_position = playerPos + Vector2(cos(angle), sin(angle)) * distance
 		
 		mob.velocity = Vector2(cos(angle),sin(angle)) * 50
 		 
